@@ -57,7 +57,20 @@ def parse_contents(contents, filename, date):
 
         dash_table.DataTable(
             df.to_dict('records'),
-            [{'name': i, 'id': i} for i in df.columns]
+            [{'name': i, 'id': i} for i in df.columns],
+            editable=True,
+            filter_action="native",
+            sort_action="native",
+            sort_mode="multi",
+            column_selectable="single",
+            row_selectable="multi",
+            row_deletable=True,
+            selected_columns=[],
+            selected_rows=[],
+            page_action="native",
+            page_current= 0,
+            page_size= 10,
+            export_format="xlsx"
         ),
 
         html.Hr(),  # horizontal line
